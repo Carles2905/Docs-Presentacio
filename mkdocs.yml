@@ -1,10 +1,10 @@
 site_name: "Documentació i Desplegament de Servidors (SRE-Docs)"
 site_description: "Portal de documentació tècnica per al desplegament d'un servidor corporatiu LAMP i la seua seguretat."
 site_author: "Adrián, Carles, Michael i Javi"
-site_url: "https://sre-docs.local"
+site_url: "https://carles2905.github.io/Docs-Presentacio"
 
-repo_name: "SRE-Docs"
-repo_url: "https://github.com/sre-docs/sre-docs"
+repo_name: "Carles2905/Docs-Presentacio"
+repo_url: "https://github.com/Carles2905/Docs-Presentacio"
 
 docs_dir: docs
 site_dir: site
