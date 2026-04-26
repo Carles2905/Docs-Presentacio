@@ -1,15 +1,15 @@
 
 <!doctype html>
-<html lang="ca" class="no-js">
+<html lang="es" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Portal de documentació tècnica per al desplegament d'un servidor corporatiu LAMP i la seua seguretat.">
+        <meta name="description" content="Portal de documentación técnica para el despliegue de un servidor corporativo LAMP y su seguridad.">
       
       
-        <meta name="author" content="Adrián, Carles, Michael i Javi">
+        <meta name="author" content="Adrián, Carles, Michael y Javi">
       
       
         <link rel="canonical" href="https://carles2905.github.io/Docs-Presentacio/usuaris/">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Gestió de Rols i Usuaris - Documentació i Desplegament de Servidors (SRE-Docs)</title>
+        <title>Gestión de Roles y Usuarios - Documentación y Despliegue de Servidores (SRE-Docs)</title>
       
     
     
@@ -80,8 +80,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#gestio-de-rols-i-usuaris" class="md-skip">
-          Salta el contingut
+        <a href="#gestion-de-roles-y-usuarios" class="md-skip">
+          Saltar a contenido
         </a>
       
     </div>
@@ -97,8 +97,8 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Capçalera">
-    <a href=".." title="Documentació i Desplegament de Servidors (SRE-Docs)" class="md-header__button md-logo" aria-label="Documentació i Desplegament de Servidors (SRE-Docs)" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Documentación y Despliegue de Servidores (SRE-Docs)" class="md-header__button md-logo" aria-label="Documentación y Despliegue de Servidores (SRE-Docs)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,13 +112,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Documentació i Desplegament de Servidors (SRE-Docs)
+            Documentación y Despliegue de Servidores (SRE-Docs)
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gestió de Rols i Usuaris
+              Gestión de Roles y Usuarios
             
           </span>
         </div>
@@ -131,9 +131,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Canvia al mode fosc"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Cambiar al modo oscuro"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Canvia al mode fosc" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Cambiar al modo oscuro" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
@@ -141,9 +141,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Canvia al mode clar"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Cambiar al modo claro"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Canvia al mode clar" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Cambiar al modo claro" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
@@ -166,16 +166,16 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Cerca">
+      <nav class="md-search__options" aria-label="Buscar">
         
-        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -188,7 +188,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Inicialitzant cerca
+            Inicializando búsqueda
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -200,7 +200,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Carles2905/Docs-Presentacio" title="Ves al repositori" class="md-source" data-md-component="source">
+        <a href="https://github.com/Carles2905/Docs-Presentacio" title="Ir al repositorio" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -221,7 +221,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Pestanyes" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -237,7 +237,7 @@
   
     
   
-  Inici
+  Inicio
 
       </a>
     </li>
@@ -256,7 +256,7 @@
   
     
   
-  Configuració de Servidors
+  Configuración de Servidores
 
       </a>
     </li>
@@ -277,7 +277,7 @@
   
     
   
-  Gestió de Rols i Usuaris
+  Gestión de Roles y Usuarios
 
       </a>
     </li>
@@ -296,7 +296,7 @@
   
     
   
-  Seguretat i Hardening
+  Seguridad y Hardening
 
       </a>
     </li>
@@ -323,19 +323,19 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegació" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Documentació i Desplegament de Servidors (SRE-Docs)" class="md-nav__button md-logo" aria-label="Documentació i Desplegament de Servidors (SRE-Docs)" data-md-component="logo">
+    <a href=".." title="Documentación y Despliegue de Servidores (SRE-Docs)" class="md-nav__button md-logo" aria-label="Documentación y Despliegue de Servidores (SRE-Docs)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Documentació i Desplegament de Servidors (SRE-Docs)
+    Documentación y Despliegue de Servidores (SRE-Docs)
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Carles2905/Docs-Presentacio" title="Ves al repositori" class="md-source" data-md-component="source">
+      <a href="https://github.com/Carles2905/Docs-Presentacio" title="Ir al repositorio" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -362,7 +362,7 @@
   <span class="md-ellipsis">
     
   
-    Inici
+    Inicio
   
 
     
@@ -389,7 +389,7 @@
   <span class="md-ellipsis">
     
   
-    Configuració de Servidors
+    Configuración de Servidores
   
 
     
@@ -425,7 +425,7 @@
   <span class="md-ellipsis">
     
   
-    Gestió de Rols i Usuaris
+    Gestión de Roles y Usuarios
   
 
     
@@ -443,7 +443,7 @@
   <span class="md-ellipsis">
     
   
-    Gestió de Rols i Usuaris
+    Gestión de Roles y Usuarios
   
 
     
@@ -455,7 +455,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
   
   
@@ -464,15 +464,15 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Taula de continguts
+      Tabla de contenidos
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#principi-de-minim-privilegi" class="md-nav__link">
+  <a href="#principio-de-minimo-privilegio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔐 Principi de Mínim Privilegi
+        🔐 Principio de Mínimo Privilegio
       
     </span>
   </a>
@@ -480,22 +480,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usuari-root-adrian-scrum-master" class="md-nav__link">
+  <a href="#usuario-root-adrian-scrum-master" class="md-nav__link">
     <span class="md-ellipsis">
       
-        👑 Usuari: root — Adrián (Scrum Master)
+        👑 Usuario: root — Adrián (Scrum Master)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="👑 Usuari: root — Adrián (Scrum Master)">
+    <nav class="md-nav" aria-label="👑 Usuario: root — Adrián (Scrum Master)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#descripcio" class="md-nav__link">
+  <a href="#descripcion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Descripció
+        Descripción
       
     </span>
   </a>
@@ -514,10 +514,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#consideracions-de-seguretat" class="md-nav__link">
+  <a href="#consideraciones-de-seguridad" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Consideracions de Seguretat
+        Consideraciones de Seguridad
       
     </span>
   </a>
@@ -530,22 +530,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usuari-admin-web-carles-administrador-web" class="md-nav__link">
+  <a href="#usuario-admin-web-carles-administrador-web" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🌐 Usuari: admin-web — Carles (Administrador Web)
+        🌐 Usuario: admin-web — Carles (Administrador Web)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🌐 Usuari: admin-web — Carles (Administrador Web)">
+    <nav class="md-nav" aria-label="🌐 Usuario: admin-web — Carles (Administrador Web)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#descripcio_1" class="md-nav__link">
+  <a href="#descripcion_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Descripció
+        Descripción
       
     </span>
   </a>
@@ -553,10 +553,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creacio-de-lusuari" class="md-nav__link">
+  <a href="#creacion-del-usuario" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creació de l'usuari
+        Creación del usuario
       
     </span>
   </a>
@@ -564,10 +564,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#assignacio-de-propietat-del-directori-web" class="md-nav__link">
+  <a href="#asignacion-de-propiedad-del-directorio-web" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Assignació de propietat del directori web
+        Asignación de propiedad del directorio web
       
     </span>
   </a>
@@ -586,10 +586,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#canvi-didentitat-per-operar" class="md-nav__link">
+  <a href="#cambio-de-identidad-para-operar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Canvi d'identitat per operar
+        Cambio de identidad para operar
       
     </span>
   </a>
@@ -602,22 +602,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usuari-db-backup-michael-seguretat-i-backups" class="md-nav__link">
+  <a href="#usuario-db-backup-michael-seguridad-y-backups" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🗄️ Usuari: db-backup — Michael (Seguretat i Backups)
+        🗄️ Usuario: db-backup — Michael (Seguridad y Backups)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🗄️ Usuari: db-backup — Michael (Seguretat i Backups)">
+    <nav class="md-nav" aria-label="🗄️ Usuario: db-backup — Michael (Seguridad y Backups)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#descripcio_2" class="md-nav__link">
+  <a href="#descripcion_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Descripció
+        Descripción
       
     </span>
   </a>
@@ -625,10 +625,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creacio-de-lusuari-del-sistema" class="md-nav__link">
+  <a href="#creacion-del-usuario-del-sistema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creació de l'usuari del sistema
+        Creación del usuario del sistema
       
     </span>
   </a>
@@ -636,10 +636,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creacio-de-lusuari-a-mariadb" class="md-nav__link">
+  <a href="#creacion-del-usuario-en-mariadb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creació de l'usuari a MariaDB
+        Creación del usuario en MariaDB
       
     </span>
   </a>
@@ -647,10 +647,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#script-de-copia-de-seguretat" class="md-nav__link">
+  <a href="#script-de-copia-de-seguridad" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Script de còpia de seguretat
+        Script de copia de seguridad
       
     </span>
   </a>
@@ -674,22 +674,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usuari-sys-monitor-javi-auditor-del-sistema" class="md-nav__link">
+  <a href="#usuario-sys-monitor-javi-auditor-del-sistema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📊 Usuari: sys-monitor — Javi (Auditor del Sistema)
+        📊 Usuario: sys-monitor — Javi (Auditor del Sistema)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📊 Usuari: sys-monitor — Javi (Auditor del Sistema)">
+    <nav class="md-nav" aria-label="📊 Usuario: sys-monitor — Javi (Auditor del Sistema)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#descripcio_3" class="md-nav__link">
+  <a href="#descripcion_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Descripció
+        Descripción
       
     </span>
   </a>
@@ -697,10 +697,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creacio-de-lusuari_1" class="md-nav__link">
+  <a href="#creacion-del-usuario_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creació de l'usuari
+        Creación del usuario
       
     </span>
   </a>
@@ -708,10 +708,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuracio-de-permisos-de-lectura-als-logs" class="md-nav__link">
+  <a href="#configuracion-de-permisos-de-lectura-en-los-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuració de permisos de lectura als logs
+        Configuración de permisos de lectura en los logs
       
     </span>
   </a>
@@ -719,10 +719,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#verificacio-dacces-als-logs" class="md-nav__link">
+  <a href="#verificacion-de-acceso-a-los-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verificació d'accés als logs
+        Verificación de acceso a los logs
       
     </span>
   </a>
@@ -730,10 +730,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#restriccions-addicionals" class="md-nav__link">
+  <a href="#restricciones-adicionales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Restriccions addicionals
+        Restricciones adicionales
       
     </span>
   </a>
@@ -757,10 +757,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resum-de-tots-els-usuaris" class="md-nav__link">
+  <a href="#resumen-de-todos-los-usuarios" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📋 Resum de Tots els Usuaris
+        📋 Resumen de Todos los Usuarios
       
     </span>
   </a>
@@ -789,7 +789,7 @@
   <span class="md-ellipsis">
     
   
-    Seguretat i Hardening
+    Seguridad y Hardening
   
 
     
@@ -815,7 +815,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
   
   
@@ -824,15 +824,15 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Taula de continguts
+      Tabla de contenidos
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#principi-de-minim-privilegi" class="md-nav__link">
+  <a href="#principio-de-minimo-privilegio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔐 Principi de Mínim Privilegi
+        🔐 Principio de Mínimo Privilegio
       
     </span>
   </a>
@@ -840,22 +840,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usuari-root-adrian-scrum-master" class="md-nav__link">
+  <a href="#usuario-root-adrian-scrum-master" class="md-nav__link">
     <span class="md-ellipsis">
       
-        👑 Usuari: root — Adrián (Scrum Master)
+        👑 Usuario: root — Adrián (Scrum Master)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="👑 Usuari: root — Adrián (Scrum Master)">
+    <nav class="md-nav" aria-label="👑 Usuario: root — Adrián (Scrum Master)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#descripcio" class="md-nav__link">
+  <a href="#descripcion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Descripció
+        Descripción
       
     </span>
   </a>
@@ -874,10 +874,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#consideracions-de-seguretat" class="md-nav__link">
+  <a href="#consideraciones-de-seguridad" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Consideracions de Seguretat
+        Consideraciones de Seguridad
       
     </span>
   </a>
@@ -890,22 +890,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usuari-admin-web-carles-administrador-web" class="md-nav__link">
+  <a href="#usuario-admin-web-carles-administrador-web" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🌐 Usuari: admin-web — Carles (Administrador Web)
+        🌐 Usuario: admin-web — Carles (Administrador Web)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🌐 Usuari: admin-web — Carles (Administrador Web)">
+    <nav class="md-nav" aria-label="🌐 Usuario: admin-web — Carles (Administrador Web)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#descripcio_1" class="md-nav__link">
+  <a href="#descripcion_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Descripció
+        Descripción
       
     </span>
   </a>
@@ -913,10 +913,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creacio-de-lusuari" class="md-nav__link">
+  <a href="#creacion-del-usuario" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creació de l'usuari
+        Creación del usuario
       
     </span>
   </a>
@@ -924,10 +924,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#assignacio-de-propietat-del-directori-web" class="md-nav__link">
+  <a href="#asignacion-de-propiedad-del-directorio-web" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Assignació de propietat del directori web
+        Asignación de propiedad del directorio web
       
     </span>
   </a>
@@ -946,10 +946,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#canvi-didentitat-per-operar" class="md-nav__link">
+  <a href="#cambio-de-identidad-para-operar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Canvi d'identitat per operar
+        Cambio de identidad para operar
       
     </span>
   </a>
@@ -962,22 +962,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usuari-db-backup-michael-seguretat-i-backups" class="md-nav__link">
+  <a href="#usuario-db-backup-michael-seguridad-y-backups" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🗄️ Usuari: db-backup — Michael (Seguretat i Backups)
+        🗄️ Usuario: db-backup — Michael (Seguridad y Backups)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🗄️ Usuari: db-backup — Michael (Seguretat i Backups)">
+    <nav class="md-nav" aria-label="🗄️ Usuario: db-backup — Michael (Seguridad y Backups)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#descripcio_2" class="md-nav__link">
+  <a href="#descripcion_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Descripció
+        Descripción
       
     </span>
   </a>
@@ -985,10 +985,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creacio-de-lusuari-del-sistema" class="md-nav__link">
+  <a href="#creacion-del-usuario-del-sistema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creació de l'usuari del sistema
+        Creación del usuario del sistema
       
     </span>
   </a>
@@ -996,10 +996,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creacio-de-lusuari-a-mariadb" class="md-nav__link">
+  <a href="#creacion-del-usuario-en-mariadb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creació de l'usuari a MariaDB
+        Creación del usuario en MariaDB
       
     </span>
   </a>
@@ -1007,10 +1007,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#script-de-copia-de-seguretat" class="md-nav__link">
+  <a href="#script-de-copia-de-seguridad" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Script de còpia de seguretat
+        Script de copia de seguridad
       
     </span>
   </a>
@@ -1034,22 +1034,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usuari-sys-monitor-javi-auditor-del-sistema" class="md-nav__link">
+  <a href="#usuario-sys-monitor-javi-auditor-del-sistema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📊 Usuari: sys-monitor — Javi (Auditor del Sistema)
+        📊 Usuario: sys-monitor — Javi (Auditor del Sistema)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📊 Usuari: sys-monitor — Javi (Auditor del Sistema)">
+    <nav class="md-nav" aria-label="📊 Usuario: sys-monitor — Javi (Auditor del Sistema)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#descripcio_3" class="md-nav__link">
+  <a href="#descripcion_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Descripció
+        Descripción
       
     </span>
   </a>
@@ -1057,10 +1057,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creacio-de-lusuari_1" class="md-nav__link">
+  <a href="#creacion-del-usuario_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creació de l'usuari
+        Creación del usuario
       
     </span>
   </a>
@@ -1068,10 +1068,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuracio-de-permisos-de-lectura-als-logs" class="md-nav__link">
+  <a href="#configuracion-de-permisos-de-lectura-en-los-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuració de permisos de lectura als logs
+        Configuración de permisos de lectura en los logs
       
     </span>
   </a>
@@ -1079,10 +1079,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#verificacio-dacces-als-logs" class="md-nav__link">
+  <a href="#verificacion-de-acceso-a-los-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verificació d'accés als logs
+        Verificación de acceso a los logs
       
     </span>
   </a>
@@ -1090,10 +1090,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#restriccions-addicionals" class="md-nav__link">
+  <a href="#restricciones-adicionales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Restriccions addicionals
+        Restricciones adicionales
       
     </span>
   </a>
@@ -1117,10 +1117,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resum-de-tots-els-usuaris" class="md-nav__link">
+  <a href="#resumen-de-todos-los-usuarios" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📋 Resum de Tots els Usuaris
+        📋 Resumen de Todos los Usuarios
       
     </span>
   </a>
@@ -1147,116 +1147,116 @@
   
 
 
-<h1 id="gestio-de-rols-i-usuaris">👤 Gestió de Rols i Usuaris<a class="headerlink" href="#gestio-de-rols-i-usuaris" title="Permanent link">&para;</a></h1>
-<p>En aquesta secció es documenta la creació i configuració de tots els usuaris del sistema, aplicant el <strong>Principi de Mínim Privilegi</strong> (<em>Principle of Least Privilege</em>): cada usuari disposa únicament dels permisos imprescindibles per realitzar les seues funcions i res més.</p>
+<h1 id="gestion-de-roles-y-usuarios">👤 Gestión de Roles y Usuarios<a class="headerlink" href="#gestion-de-roles-y-usuarios" title="Permanent link">&para;</a></h1>
+<p>En esta sección se documenta la creación y configuración de todos los usuarios del sistema, aplicando el <strong>Principio de Mínimo Privilegio</strong> (<em>Principle of Least Privilege</em>): cada usuario dispone únicamente de los permisos imprescindibles para realizar sus funciones y nada más.</p>
 <hr />
-<h2 id="principi-de-minim-privilegi">🔐 Principi de Mínim Privilegi<a class="headerlink" href="#principi-de-minim-privilegi" title="Permanent link">&para;</a></h2>
-<p>El principi de mínim privilegi estableix que <strong>cap usuari, procés o servei ha de tenir més permisos dels estrictament necessaris</strong> per a la seua funció. Açò redueix la superfície d'atac del sistema: si un compte és compromès, el dany possible queda limitat als recursos als quals aquell usuari tenia accés.</p>
+<h2 id="principio-de-minimo-privilegio">🔐 Principio de Mínimo Privilegio<a class="headerlink" href="#principio-de-minimo-privilegio" title="Permanent link">&para;</a></h2>
+<p>El principio de mínimo privilegio establece que <strong>ningún usuario, proceso o servicio debe tener más permisos de los estrictamente necesarios</strong> para su función. Esto reduce la superficie de ataque del sistema: si una cuenta es comprometida, el daño posible queda limitado a los recursos a los que ese usuario tenía acceso.</p>
 <hr />
-<h2 id="usuari-root-adrian-scrum-master">👑 Usuari: <code>root</code> — Adrián (Scrum Master)<a class="headerlink" href="#usuari-root-adrian-scrum-master" title="Permanent link">&para;</a></h2>
-<h3 id="descripcio">Descripció<a class="headerlink" href="#descripcio" title="Permanent link">&para;</a></h3>
-<p>L'usuari <code>root</code> és el superusuari del sistema Linux amb <strong>accés il·limitat</strong> a tots els fitxers, serveis i configuracions. En el nostre projecte, aquest rol correspon a <strong>Adrián</strong>, que actua com a Scrum Master i responsable tècnic global.</p>
+<h2 id="usuario-root-adrian-scrum-master">👑 Usuario: <code>root</code> — Adrián (Scrum Master)<a class="headerlink" href="#usuario-root-adrian-scrum-master" title="Permanent link">&para;</a></h2>
+<h3 id="descripcion">Descripción<a class="headerlink" href="#descripcion" title="Permanent link">&para;</a></h3>
+<p>El usuario <code>root</code> es el superusuario del sistema Linux con <strong>acceso ilimitado</strong> a todos los ficheros, servicios y configuraciones. En nuestro proyecto, este rol corresponde a <strong>Adrián</strong>, que actúa como Scrum Master y responsable técnico global.</p>
 <h3 id="permisos">Permisos<a class="headerlink" href="#permisos" title="Permanent link">&para;</a></h3>
 <ul>
-<li>✅ Accés total a tots els directoris del sistema</li>
-<li>✅ Capacitat per instal·lar i desinstal·lar paquets</li>
-<li>✅ Gestió de serveis amb <code>systemctl</code></li>
-<li>✅ Creació i eliminació d'usuaris</li>
-<li>✅ Modificació de qualsevol fitxer de configuració</li>
+<li>✅ Acceso total a todos los directorios del sistema</li>
+<li>✅ Capacidad para instalar y desinstalar paquetes</li>
+<li>✅ Gestión de servicios con <code>systemctl</code></li>
+<li>✅ Creación y eliminación de usuarios</li>
+<li>✅ Modificación de cualquier fichero de configuración</li>
 </ul>
-<h3 id="consideracions-de-seguretat">Consideracions de Seguretat<a class="headerlink" href="#consideracions-de-seguretat" title="Permanent link">&para;</a></h3>
+<h3 id="consideraciones-de-seguridad">Consideraciones de Seguridad<a class="headerlink" href="#consideraciones-de-seguridad" title="Permanent link">&para;</a></h3>
 <div class="admonition danger">
-<p class="admonition-title">Ús responsable del root</p>
-<p>L'accés com a <code>root</code> ha d'usar-se <strong>únicament per a tasques que ho requerisquen explícitament</strong>. Per a tasques quotidianes s'hauria d'usar <code>sudo</code> des d'un compte personal amb privilegis limitats.</p>
+<p class="admonition-title">Uso responsable del root</p>
+<p>El acceso como <code>root</code> debe usarse <strong>únicamente para tareas que lo requieran explícitamente</strong>. Para tareas cotidianas se debería usar <code>sudo</code> desde una cuenta personal con privilegios limitados.</p>
 </div>
-<p>L'accés SSH directe com a <code>root</code> està <strong>desactivat</strong> en la configuració de seguretat (veure secció <a href="../seguretat/">Seguretat i Hardening</a>).</p>
+<p>El acceso SSH directo como <code>root</code> está <strong>desactivado</strong> en la configuración de seguridad (ver sección <a href="../seguretat/">Seguridad y Hardening</a>).</p>
 <hr />
-<h2 id="usuari-admin-web-carles-administrador-web">🌐 Usuari: <code>admin-web</code> — Carles (Administrador Web)<a class="headerlink" href="#usuari-admin-web-carles-administrador-web" title="Permanent link">&para;</a></h2>
-<h3 id="descripcio_1">Descripció<a class="headerlink" href="#descripcio_1" title="Permanent link">&para;</a></h3>
-<p>L'usuari <code>admin-web</code> és el responsable del servidor web Apache. <strong>Carles</strong> gestiona els fitxers de l'aplicació web, els <em>virtual hosts</em> i el contingut públic del servidor, sense tenir accés a la base de dades ni als logs del sistema.</p>
-<h3 id="creacio-de-lusuari">Creació de l'usuari<a class="headerlink" href="#creacio-de-lusuari" title="Permanent link">&para;</a></h3>
+<h2 id="usuario-admin-web-carles-administrador-web">🌐 Usuario: <code>admin-web</code> — Carles (Administrador Web)<a class="headerlink" href="#usuario-admin-web-carles-administrador-web" title="Permanent link">&para;</a></h2>
+<h3 id="descripcion_1">Descripción<a class="headerlink" href="#descripcion_1" title="Permanent link">&para;</a></h3>
+<p>El usuario <code>admin-web</code> es el responsable del servidor web Apache. <strong>Carles</strong> gestiona los ficheros de la aplicación web, los <em>virtual hosts</em> y el contenido público del servidor, sin tener acceso a la base de datos ni a los logs del sistema.</p>
+<h3 id="creacion-del-usuario">Creación del usuario<a class="headerlink" href="#creacion-del-usuario" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>adduser<span class="w"> </span>admin-web
 </code></pre></div>
-<p>Durant la creació, s'assignarà una contrasenya i s'ompliran les dades opcionals (nom complet, etc.).</p>
-<h3 id="assignacio-de-propietat-del-directori-web">Assignació de propietat del directori web<a class="headerlink" href="#assignacio-de-propietat-del-directori-web" title="Permanent link">&para;</a></h3>
-<p>L'usuari <code>admin-web</code> ha de ser el <strong>propietari</strong> del directori <code>/var/www/html</code> per poder gestionar els fitxers de la web sense necessitar permisos de <code>root</code>:</p>
+<p>Durante la creación, se asignará una contraseña y se rellenarán los datos opcionales (nombre completo, etc.).</p>
+<h3 id="asignacion-de-propiedad-del-directorio-web">Asignación de propiedad del directorio web<a class="headerlink" href="#asignacion-de-propiedad-del-directorio-web" title="Permanent link">&para;</a></h3>
+<p>El usuario <code>admin-web</code> debe ser el <strong>propietario</strong> del directorio <code>/var/www/html</code> para poder gestionar los ficheros de la web sin necesitar permisos de <code>root</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>admin-web:admin-web<span class="w"> </span>/var/www/html
 </code></pre></div>
-<p>Ajustem els permisos del directori perquè siguen correctes:</p>
+<p>Ajustamos los permisos del directorio para que sean correctos:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">755</span><span class="w"> </span>/var/www/html
 </code></pre></div>
-<p>Verifiquem que la propietat s'ha assignat correctament:</p>
+<p>Verificamos que la propiedad se ha asignado correctamente:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ls<span class="w"> </span>-la<span class="w"> </span>/var/www/html
 </code></pre></div>
 <h3 id="permisos_1">Permisos<a class="headerlink" href="#permisos_1" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Recurs</th>
-<th>Permís</th>
+<th>Recurso</th>
+<th>Permiso</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/var/www/html</code></td>
-<td>✅ Lectura i escriptura (propietari)</td>
+<td>✅ Lectura y escritura (propietario)</td>
 </tr>
 <tr>
 <td><code>/etc/apache2</code></td>
-<td>❌ Sense accés</td>
+<td>❌ Sin acceso</td>
 </tr>
 <tr>
 <td><code>/var/log</code></td>
-<td>❌ Sense accés</td>
+<td>❌ Sin acceso</td>
 </tr>
 <tr>
 <td>MariaDB</td>
-<td>❌ Sense accés</td>
+<td>❌ Sin acceso</td>
 </tr>
 <tr>
 <td><code>sudo</code></td>
-<td>❌ No té privilegis sudo</td>
+<td>❌ No tiene privilegios sudo</td>
 </tr>
 </tbody>
 </table>
-<h3 id="canvi-didentitat-per-operar">Canvi d'identitat per operar<a class="headerlink" href="#canvi-didentitat-per-operar" title="Permanent link">&para;</a></h3>
-<p>Per treballar com a <code>admin-web</code>, Adrián (root) pot fer:</p>
+<h3 id="cambio-de-identidad-para-operar">Cambio de identidad para operar<a class="headerlink" href="#cambio-de-identidad-para-operar" title="Permanent link">&para;</a></h3>
+<p>Para trabajar como <code>admin-web</code>, Adrián (root) puede hacer:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>su<span class="w"> </span>-<span class="w"> </span>admin-web
 </code></pre></div>
 <hr />
-<h2 id="usuari-db-backup-michael-seguretat-i-backups">🗄️ Usuari: <code>db-backup</code> — Michael (Seguretat i Backups)<a class="headerlink" href="#usuari-db-backup-michael-seguretat-i-backups" title="Permanent link">&para;</a></h2>
-<h3 id="descripcio_2">Descripció<a class="headerlink" href="#descripcio_2" title="Permanent link">&para;</a></h3>
-<p>L'usuari <code>db-backup</code> té com a única funció la realització de <strong>còpies de seguretat de les bases de dades</strong> de MariaDB. <strong>Michael</strong> és el responsable de configurar i executar els scripts de <code>mysqldump</code>. No té accés al sistema de fitxers web ni als logs del sistema.</p>
-<h3 id="creacio-de-lusuari-del-sistema">Creació de l'usuari del sistema<a class="headerlink" href="#creacio-de-lusuari-del-sistema" title="Permanent link">&para;</a></h3>
+<h2 id="usuario-db-backup-michael-seguridad-y-backups">🗄️ Usuario: <code>db-backup</code> — Michael (Seguridad y Backups)<a class="headerlink" href="#usuario-db-backup-michael-seguridad-y-backups" title="Permanent link">&para;</a></h2>
+<h3 id="descripcion_2">Descripción<a class="headerlink" href="#descripcion_2" title="Permanent link">&para;</a></h3>
+<p>El usuario <code>db-backup</code> tiene como única función la realización de <strong>copias de seguridad de las bases de datos</strong> de MariaDB. <strong>Michael</strong> es el responsable de configurar y ejecutar los scripts de <code>mysqldump</code>. No tiene acceso al sistema de ficheros web ni a los logs del sistema.</p>
+<h3 id="creacion-del-usuario-del-sistema">Creación del usuario del sistema<a class="headerlink" href="#creacion-del-usuario-del-sistema" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>adduser<span class="w"> </span>--system<span class="w"> </span>--no-create-home<span class="w"> </span>--shell<span class="w"> </span>/bin/bash<span class="w"> </span>db-backup
 </code></pre></div>
-<p>L'opció <code>--system</code> crea un usuari del sistema sense directori personal, adequat per a tasques automatitzades.</p>
-<h3 id="creacio-de-lusuari-a-mariadb">Creació de l'usuari a MariaDB<a class="headerlink" href="#creacio-de-lusuari-a-mariadb" title="Permanent link">&para;</a></h3>
-<p>Creem un usuari a MariaDB amb permisos de lectura per a la realització de còpies:</p>
+<p>La opción <code>--system</code> crea un usuario del sistema sin directorio personal, adecuado para tareas automatizadas.</p>
+<h3 id="creacion-del-usuario-en-mariadb">Creación del usuario en MariaDB<a class="headerlink" href="#creacion-del-usuario-en-mariadb" title="Permanent link">&para;</a></h3>
+<p>Creamos un usuario en MariaDB con permisos de lectura para la realización de copias:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p
 </code></pre></div>
-<p>Un cop dins del prompt de MariaDB:</p>
+<p>Una vez dentro del prompt de MariaDB:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;db-backup&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;BackupPass_2024!&#39;</span><span class="p">;</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">LOCK</span><span class="w"> </span><span class="n">TABLES</span><span class="p">,</span><span class="w"> </span><span class="k">SHOW</span><span class="w"> </span><span class="k">VIEW</span><span class="p">,</span><span class="w"> </span><span class="n">EVENT</span><span class="p">,</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;db-backup&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">EXIT</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="script-de-copia-de-seguretat">Script de còpia de seguretat<a class="headerlink" href="#script-de-copia-de-seguretat" title="Permanent link">&para;</a></h3>
-<p>Creem el directori on es guardaran les còpies:</p>
+<h3 id="script-de-copia-de-seguridad">Script de copia de seguridad<a class="headerlink" href="#script-de-copia-de-seguridad" title="Permanent link">&para;</a></h3>
+<p>Creamos el directorio donde se guardarán las copias:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/backups/mysql
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>chown<span class="w"> </span>db-backup:db-backup<span class="w"> </span>/var/backups/mysql
 </code></pre></div>
-<p>Creem el script de còpia automàtica:</p>
+<p>Creamos el script de copia automática:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/usr/local/bin/backup-db.sh
 </code></pre></div>
-<p>Contingut del script:</p>
+<p>Contenido del script:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="ch">#!/bin/bash</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nv">DATA</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m-%d_%H-%M-%S<span class="k">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nv">FECHA</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m-%d_%H-%M-%S<span class="k">)</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nv">DEST</span><span class="o">=</span><span class="s2">&quot;/var/backups/mysql&quot;</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>mysqldump<span class="w"> </span>-u<span class="w"> </span>db-backup<span class="w"> </span>-pBackupPass_2024!<span class="w"> </span>--all-databases<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEST</span><span class="s2">/backup_</span><span class="nv">$DATA</span><span class="s2">.sql&quot;</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Còpia realitzada: backup_</span><span class="nv">$DATA</span><span class="s2">.sql&quot;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>mysqldump<span class="w"> </span>-u<span class="w"> </span>db-backup<span class="w"> </span>-pBackupPass_2024!<span class="w"> </span>--all-databases<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DEST</span><span class="s2">/backup_</span><span class="nv">$FECHA</span><span class="s2">.sql&quot;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Copia realizada: backup_</span><span class="nv">$FECHA</span><span class="s2">.sql&quot;</span>
 </code></pre></div>
-<p>Donem permisos d'execució al script:</p>
+<p>Damos permisos de ejecución al script:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/backup-db.sh
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo<span class="w"> </span>chown<span class="w"> </span>db-backup:db-backup<span class="w"> </span>/usr/local/bin/backup-db.sh
 </code></pre></div>
@@ -1264,75 +1264,75 @@
 <table>
 <thead>
 <tr>
-<th>Recurs</th>
-<th>Permís</th>
+<th>Recurso</th>
+<th>Permiso</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/var/backups/mysql</code></td>
-<td>✅ Lectura i escriptura (propietari)</td>
+<td>✅ Lectura y escritura (propietario)</td>
 </tr>
 <tr>
 <td>MariaDB (lectura)</td>
-<td>✅ <code>SELECT</code>, <code>LOCK TABLES</code> sobre totes les bases de dades</td>
+<td>✅ <code>SELECT</code>, <code>LOCK TABLES</code> sobre todas las bases de datos</td>
 </tr>
 <tr>
 <td><code>/var/www/html</code></td>
-<td>❌ Sense accés</td>
+<td>❌ Sin acceso</td>
 </tr>
 <tr>
 <td><code>/var/log</code></td>
-<td>❌ Sense accés</td>
+<td>❌ Sin acceso</td>
 </tr>
 <tr>
 <td><code>sudo</code></td>
-<td>❌ No té privilegis sudo</td>
+<td>❌ No tiene privilegios sudo</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="usuari-sys-monitor-javi-auditor-del-sistema">📊 Usuari: <code>sys-monitor</code> — Javi (Auditor del Sistema)<a class="headerlink" href="#usuari-sys-monitor-javi-auditor-del-sistema" title="Permanent link">&para;</a></h2>
-<h3 id="descripcio_3">Descripció<a class="headerlink" href="#descripcio_3" title="Permanent link">&para;</a></h3>
-<p>L'usuari <code>sys-monitor</code> és l'encarregat de l'<strong>auditoria i monitoratge del servidor</strong>. <strong>Javi</strong> revisa els fitxers de log del sistema per detectar errors, accessos no autoritzats o comportaments anòmals. Té permisos de <strong>només lectura</strong> i no pot modificar cap configuració.</p>
-<h3 id="creacio-de-lusuari_1">Creació de l'usuari<a class="headerlink" href="#creacio-de-lusuari_1" title="Permanent link">&para;</a></h3>
+<h2 id="usuario-sys-monitor-javi-auditor-del-sistema">📊 Usuario: <code>sys-monitor</code> — Javi (Auditor del Sistema)<a class="headerlink" href="#usuario-sys-monitor-javi-auditor-del-sistema" title="Permanent link">&para;</a></h2>
+<h3 id="descripcion_3">Descripción<a class="headerlink" href="#descripcion_3" title="Permanent link">&para;</a></h3>
+<p>El usuario <code>sys-monitor</code> es el encargado de la <strong>auditoría y monitorización del servidor</strong>. <strong>Javi</strong> revisa los ficheros de log del sistema para detectar errores, accesos no autorizados o comportamientos anómalos. Tiene permisos de <strong>solo lectura</strong> y no puede modificar ninguna configuración.</p>
+<h3 id="creacion-del-usuario_1">Creación del usuario<a class="headerlink" href="#creacion-del-usuario_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>adduser<span class="w"> </span>sys-monitor
 </code></pre></div>
-<h3 id="configuracio-de-permisos-de-lectura-als-logs">Configuració de permisos de lectura als logs<a class="headerlink" href="#configuracio-de-permisos-de-lectura-als-logs" title="Permanent link">&para;</a></h3>
-<p>Afegim <code>sys-monitor</code> al grup <code>adm</code>, que en Ubuntu/Debian té accés de lectura als logs del sistema:</p>
+<h3 id="configuracion-de-permisos-de-lectura-en-los-logs">Configuración de permisos de lectura en los logs<a class="headerlink" href="#configuracion-de-permisos-de-lectura-en-los-logs" title="Permanent link">&para;</a></h3>
+<p>Añadimos <code>sys-monitor</code> al grupo <code>adm</code>, que en Ubuntu/Debian tiene acceso de lectura a los logs del sistema:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>adm<span class="w"> </span>sys-monitor
 </code></pre></div>
-<p>Verifiquem que l'usuari pertany al grup <code>adm</code>:</p>
+<p>Verificamos que el usuario pertenece al grupo <code>adm</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>groups<span class="w"> </span>sys-monitor
 </code></pre></div>
-<h3 id="verificacio-dacces-als-logs">Verificació d'accés als logs<a class="headerlink" href="#verificacio-dacces-als-logs" title="Permanent link">&para;</a></h3>
-<p>L'usuari <code>sys-monitor</code> podrà llegir fitxers com:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Logs d&#39;autenticació (SSH, sudo, etc.)</span>
+<h3 id="verificacion-de-acceso-a-los-logs">Verificación de acceso a los logs<a class="headerlink" href="#verificacion-de-acceso-a-los-logs" title="Permanent link">&para;</a></h3>
+<p>El usuario <code>sys-monitor</code> podrá leer ficheros como:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Logs de autenticación (SSH, sudo, etc.)</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>/var/log/auth.log
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Logs generals del sistema</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Logs generales del sistema</span>
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>/var/log/syslog
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1"># Logs d&#39;Apache</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1"># Logs de Apache</span>
 <a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>/var/log/apache2/access.log
 <a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span><span class="w"> </span>/var/log/apache2/error.log
 </code></pre></div>
-<h3 id="restriccions-addicionals">Restriccions addicionals<a class="headerlink" href="#restriccions-addicionals" title="Permanent link">&para;</a></h3>
-<p>Restricció de l'accés al directori <code>/var/www/html</code>:</p>
+<h3 id="restricciones-adicionales">Restricciones adicionales<a class="headerlink" href="#restricciones-adicionales" title="Permanent link">&para;</a></h3>
+<p>Restricción del acceso al directorio <code>/var/www/html</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>o-rx<span class="w"> </span>/var/www/html
 </code></pre></div>
 <h3 id="permisos_3">Permisos<a class="headerlink" href="#permisos_3" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Recurs</th>
-<th>Permís</th>
+<th>Recurso</th>
+<th>Permiso</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/var/log</code></td>
-<td>✅ Lectura (membre del grup <code>adm</code>)</td>
+<td>✅ Lectura (miembro del grupo <code>adm</code>)</td>
 </tr>
 <tr>
 <td><code>/var/log/apache2</code></td>
@@ -1340,29 +1340,29 @@
 </tr>
 <tr>
 <td><code>/var/www/html</code></td>
-<td>❌ Sense accés</td>
+<td>❌ Sin acceso</td>
 </tr>
 <tr>
 <td>MariaDB</td>
-<td>❌ Sense accés</td>
+<td>❌ Sin acceso</td>
 </tr>
 <tr>
 <td><code>sudo</code></td>
-<td>❌ No té privilegis sudo</td>
+<td>❌ No tiene privilegios sudo</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="resum-de-tots-els-usuaris">📋 Resum de Tots els Usuaris<a class="headerlink" href="#resum-de-tots-els-usuaris" title="Permanent link">&para;</a></h2>
+<h2 id="resumen-de-todos-los-usuarios">📋 Resumen de Todos los Usuarios<a class="headerlink" href="#resumen-de-todos-los-usuarios" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Usuari</th>
-<th>Membre de l'equip</th>
+<th>Usuario</th>
+<th>Miembro del equipo</th>
 <th>Rol</th>
-<th>Directori principal</th>
-<th style="text-align: right;">Accés sudo</th>
-<th style="text-align: center;">Accés MariaDB</th>
+<th>Directorio principal</th>
+<th style="text-align: center;">Acceso sudo</th>
+<th style="text-align: center;">Acceso MariaDB</th>
 </tr>
 </thead>
 <tbody>
@@ -1371,7 +1371,7 @@
 <td>Adrián</td>
 <td>Scrum Master / Admin total</td>
 <td><code>/root</code></td>
-<td style="text-align: right;">✅ Total</td>
+<td style="text-align: center;">✅ Total</td>
 <td style="text-align: center;">✅ Total</td>
 </tr>
 <tr>
@@ -1379,34 +1379,34 @@
 <td>Carles</td>
 <td>Administrador Web</td>
 <td><code>/var/www/html</code></td>
-<td style="text-align: right;">❌</td>
+<td style="text-align: center;">❌</td>
 <td style="text-align: center;">❌</td>
 </tr>
 <tr>
 <td><code>db-backup</code></td>
 <td>Michael</td>
-<td>Seguretat / Backups</td>
+<td>Seguridad / Backups</td>
 <td><code>/var/backups/mysql</code></td>
-<td style="text-align: right;">❌</td>
+<td style="text-align: center;">❌</td>
 <td style="text-align: center;">✅ Lectura</td>
 </tr>
 <tr>
 <td><code>sys-monitor</code></td>
 <td>Javi</td>
-<td>Auditor / Monitoratge</td>
+<td>Auditor / Monitorización</td>
 <td><code>/var/log</code> (lectura)</td>
-<td style="text-align: right;">❌</td>
+<td style="text-align: center;">❌</td>
 <td style="text-align: center;">❌</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <div class="admonition note">
-<p class="admonition-title">Verificació global d'usuaris</p>
-<p>Per veure tots els usuaris creats al sistema:
+<p class="admonition-title">Verificación global de usuarios</p>
+<p>Para ver todos los usuarios creados en el sistema:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>cat<span class="w"> </span>/etc/passwd<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>nologin<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="nb">false</span>
 </code></pre></div>
-Per veure els grups de cada usuari:
+Para ver los grupos de cada usuario:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">for</span><span class="w"> </span>user<span class="w"> </span><span class="k">in</span><span class="w"> </span>admin-web<span class="w"> </span>db-backup<span class="w"> </span>sys-monitor<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$user</span><span class="s2">: </span><span class="k">$(</span>groups<span class="w"> </span><span class="nv">$user</span><span class="k">)</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
 </code></pre></div></p>
 </div>
@@ -1433,7 +1433,7 @@ Per veure els grups de cada usuari:
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Torna a l'inici
+  Volver al principio
 </button>
         
       </main>
@@ -1445,7 +1445,7 @@ Per veure els grups de cada usuari:
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      © 2024 SRE-Docs · Adrián, Carles, Michael i Javi · Projecte 1r ASIR
+      © 2024 SRE-Docs · Adrián, Carles, Michael y Javi · Proyecto 1º ASIR
     </div>
   
   
@@ -1485,7 +1485,7 @@ Per veure els grups de cada usuari:
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
