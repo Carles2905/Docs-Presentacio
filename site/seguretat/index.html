@@ -1,0 +1,1310 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Portal de documentació tècnica per al desplegament d'un servidor corporatiu LAMP i la seua seguretat.">
+      
+      
+        <meta name="author" content="Adrián, Carles, Michael i Javi">
+      
+      
+        <link rel="canonical" href="https://carles2905.github.io/Docs-Presentacio/seguretat/">
+      
+      
+        <link rel="prev" href="../usuaris/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Seguretat i Hardening - Documentació i Desplegament de Servidors (SRE-Docs)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#seguretat-i-hardening-del-servidor" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href=".." title="Documentació i Desplegament de Servidors (SRE-Docs)" class="md-header__button md-logo" aria-label="Documentació i Desplegament de Servidors (SRE-Docs)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentació i Desplegament de Servidors (SRE-Docs)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Seguretat i Hardening
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Canvia al mode fosc"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Canvia al mode fosc" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="Canvia al mode clar"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Canvia al mode clar" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Carles2905/Docs-Presentacio" title="Ves al repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Carles2905/Docs-Presentacio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestanyes" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inici
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../servidors/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Configuració de Servidors
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../usuaris/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Gestió de Rols i Usuaris
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Seguretat i Hardening
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Documentació i Desplegament de Servidors (SRE-Docs)" class="md-nav__button md-logo" aria-label="Documentació i Desplegament de Servidors (SRE-Docs)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Documentació i Desplegament de Servidors (SRE-Docs)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Carles2905/Docs-Presentacio" title="Ves al repositori" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Carles2905/Docs-Presentacio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inici
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../servidors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuració de Servidors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usuaris/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestió de Rols i Usuaris
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguretat i Hardening
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seguretat i Hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pas-1-configuracio-del-firewall-amb-ufw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛡️ Pas 1: Configuració del Firewall amb UFW
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ Pas 1: Configuració del Firewall amb UFW">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprovacio-de-lestat-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprovació de l'estat inicial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#politica-per-defecte-denegar-tot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Política per defecte: denegar tot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permetre-ssh-connexions-remotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permetre SSH (connexions remotes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permetre-http-trafic-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permetre HTTP (tràfic web)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activacio-del-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activació del Firewall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacio-de-les-regles-actives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificació de les regles actives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pas-2-hardening-del-servei-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Pas 2: Hardening del Servei SSH
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Pas 2: Hardening del Servei SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edicio-del-fitxer-de-configuracio-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edició del fitxer de configuració SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canvi-del-port-per-defecte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Canvi del Port per Defecte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desactivacio-del-login-directe-com-a-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚫 Desactivació del Login Directe com a Root
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitacio-dintents-dautenticacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⏱️ Limitació d'Intents d'Autenticació
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temps-maxim-de-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🕐 Temps Màxim de Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desactivacio-de-lautenticacio-per-contrasenya-recomanat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 Desactivació de l'Autenticació per Contrasenya (Recomanat)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desament-i-reinici-del-servei-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desament i reinici del servei SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pas-3-mesures-addicionals-de-seguretat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Pas 3: Mesures Addicionals de Seguretat
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Pas 3: Mesures Addicionals de Seguretat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-fail2ban" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instal·lació de Fail2Ban
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desactivacio-de-serveis-innecessaris" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desactivació de serveis innecessaris
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualitzacions-automatiques-de-seguretat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualitzacions automàtiques de seguretat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resum-de-mesures-de-seguretat-aplicades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Resum de Mesures de Seguretat Aplicades
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pas-1-configuracio-del-firewall-amb-ufw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛡️ Pas 1: Configuració del Firewall amb UFW
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ Pas 1: Configuració del Firewall amb UFW">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprovacio-de-lestat-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprovació de l'estat inicial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#politica-per-defecte-denegar-tot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Política per defecte: denegar tot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permetre-ssh-connexions-remotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permetre SSH (connexions remotes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permetre-http-trafic-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permetre HTTP (tràfic web)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activacio-del-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activació del Firewall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacio-de-les-regles-actives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificació de les regles actives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pas-2-hardening-del-servei-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Pas 2: Hardening del Servei SSH
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Pas 2: Hardening del Servei SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#edicio-del-fitxer-de-configuracio-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edició del fitxer de configuració SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canvi-del-port-per-defecte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Canvi del Port per Defecte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desactivacio-del-login-directe-com-a-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚫 Desactivació del Login Directe com a Root
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitacio-dintents-dautenticacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⏱️ Limitació d'Intents d'Autenticació
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temps-maxim-de-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🕐 Temps Màxim de Login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desactivacio-de-lautenticacio-per-contrasenya-recomanat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 Desactivació de l'Autenticació per Contrasenya (Recomanat)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desament-i-reinici-del-servei-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desament i reinici del servei SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pas-3-mesures-addicionals-de-seguretat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Pas 3: Mesures Addicionals de Seguretat
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Pas 3: Mesures Addicionals de Seguretat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-fail2ban" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instal·lació de Fail2Ban
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desactivacio-de-serveis-innecessaris" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desactivació de serveis innecessaris
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualitzacions-automatiques-de-seguretat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualitzacions automàtiques de seguretat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resum-de-mesures-de-seguretat-aplicades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Resum de Mesures de Seguretat Aplicades
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="seguretat-i-hardening-del-servidor">🔒 Seguretat i Hardening del Servidor<a class="headerlink" href="#seguretat-i-hardening-del-servidor" title="Permanent link">&para;</a></h1>
+<p>En aquesta secció es documenten totes les mesures de seguretat aplicades al servidor per reduir la superfície d'atac i protegir els serveis desplegats. L'<strong>hardening</strong> (enduriment) és el procés de configurar el sistema per eliminar vulnerabilitats innecessàries.</p>
+<hr />
+<h2 id="pas-1-configuracio-del-firewall-amb-ufw">🛡️ Pas 1: Configuració del Firewall amb UFW<a class="headerlink" href="#pas-1-configuracio-del-firewall-amb-ufw" title="Permanent link">&para;</a></h2>
+<p><strong>UFW</strong> (<em>Uncomplicated Firewall</em>) és la ferramenta de gestió de firewall per a Ubuntu/Debian. Permet definir regles senzilles per controlar el tràfic de xarxa entrant i eixint del servidor.</p>
+<h3 id="comprovacio-de-lestat-inicial">Comprovació de l'estat inicial<a class="headerlink" href="#comprovacio-de-lestat-inicial" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>status
+</code></pre></div>
+<p>Si el firewall no està actiu, la resposta serà <code>Status: inactive</code>.</p>
+<h3 id="politica-per-defecte-denegar-tot">Política per defecte: denegar tot<a class="headerlink" href="#politica-per-defecte-denegar-tot" title="Permanent link">&para;</a></h3>
+<p>Abans d'afegir regles, establim una política restrictiva que <strong>bloqueja tot el tràfic entrant</strong> i permet tot el sortint:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>default<span class="w"> </span>deny<span class="w"> </span>incoming
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>default<span class="w"> </span>allow<span class="w"> </span>outgoing
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Important: ordre de configuració</p>
+<p><strong>Sempre afegeix les regles necessàries ABANS d'activar el firewall.</strong> Si actives UFW sense permetre SSH, perdràs l'accés remot al servidor.</p>
+</div>
+<h3 id="permetre-ssh-connexions-remotes">Permetre SSH (connexions remotes)<a class="headerlink" href="#permetre-ssh-connexions-remotes" title="Permanent link">&para;</a></h3>
+<p>Permetem l'accés SSH al servidor. Com hem canviat el port per defecte a <strong>2222</strong> (veure secció <a href="#pas-2-hardening-del-servei-ssh">Canvi de Port SSH</a>), hem d'especificar-lo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span>ssh
+</code></pre></div>
+<p>O directament per port, en cas d'haver modificat el port al 2222:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">2222</span>/tcp
+</code></pre></div>
+<h3 id="permetre-http-trafic-web">Permetre HTTP (tràfic web)<a class="headerlink" href="#permetre-http-trafic-web" title="Permanent link">&para;</a></h3>
+<p>Permetem el tràfic web entrant al port 80 (HTTP):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>/tcp
+</code></pre></div>
+<p>Si en el futur s'afig un certificat SSL, s'haurà de permetre també el port 443 (HTTPS):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">443</span>/tcp
+</code></pre></div>
+<h3 id="activacio-del-firewall">Activació del Firewall<a class="headerlink" href="#activacio-del-firewall" title="Permanent link">&para;</a></h3>
+<p>Un cop configurades les regles, activem UFW:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span>
+</code></pre></div>
+<p>El sistema demanarà confirmació. Escrivim <code>y</code> i premem <code>Enter</code>.</p>
+<h3 id="verificacio-de-les-regles-actives">Verificació de les regles actives<a class="headerlink" href="#verificacio-de-les-regles-actives" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>status<span class="w"> </span>verbose
+</code></pre></div>
+<p>La sortida esperada és similar a:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Status: active
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Logging: on (low)
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Default: deny (incoming), allow (outgoing), disabled (routed)
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>New profiles: skip
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>To                         Action      From
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>--                         ------      ----
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>2222/tcp                   ALLOW IN    Anywhere
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>80/tcp                     ALLOW IN    Anywhere
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>443/tcp                    ALLOW IN    Anywhere
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>2222/tcp (v6)              ALLOW IN    Anywhere (v6)
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>80/tcp (v6)                ALLOW IN    Anywhere (v6)
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>443/tcp (v6)               ALLOW IN    Anywhere (v6)
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Firewall actiu</p>
+<p>El servidor ara bloqueja tot el tràfic entrant excepte SSH (port 2222) i HTTP (port 80). Qualsevol altre port no inclòs en les regles serà rebutjat automàticament.</p>
+</div>
+<hr />
+<h2 id="pas-2-hardening-del-servei-ssh">🔑 Pas 2: Hardening del Servei SSH<a class="headerlink" href="#pas-2-hardening-del-servei-ssh" title="Permanent link">&para;</a></h2>
+<p>SSH (<em>Secure Shell</em>) és el protocol principal d'accés remot al servidor. La seua configuració per defecte presenta diverses vulnerabilitats que s'han de corregir.</p>
+<h3 id="edicio-del-fitxer-de-configuracio-ssh">Edició del fitxer de configuració SSH<a class="headerlink" href="#edicio-del-fitxer-de-configuracio-ssh" title="Permanent link">&para;</a></h3>
+<p>El fitxer de configuració principal d'SSH és <code>/etc/ssh/sshd_config</code>. L'editem com a root:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/ssh/sshd_config
+</code></pre></div>
+<h3 id="canvi-del-port-per-defecte">🔄 Canvi del Port per Defecte<a class="headerlink" href="#canvi-del-port-per-defecte" title="Permanent link">&para;</a></h3>
+<p>El port per defecte d'SSH és el <strong>22</strong>, que és escanejat constantment per bots i atacants automatitzats. Canviem-lo al <strong>2222</strong> per reduir la seua exposició.</p>
+<p>Localitzem la línia:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>#Port 22
+</code></pre></div>
+<p>I la substituïm per:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Port 2222
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Per què canviar el port?</p>
+<p>Canviar el port SSH <strong>no és una mesura de seguretat definitiva</strong> per si sola (seguretat per obscuritat), però redueix significativament el soroll dels atacs automatitzats de força bruta, que solen apuntar sempre al port 22. S'ha de combinar amb altres mesures com la desactivació de <code>root</code> i les claus SSH.</p>
+</div>
+<h3 id="desactivacio-del-login-directe-com-a-root">🚫 Desactivació del Login Directe com a Root<a class="headerlink" href="#desactivacio-del-login-directe-com-a-root" title="Permanent link">&para;</a></h3>
+<p>Localitzem la línia:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>#PermitRootLogin prohibit-password
+</code></pre></div>
+<p>I la substituïm per:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>PermitRootLogin no
+</code></pre></div>
+<p>Açò impedeix que ningú puga connectar-se directament com a <code>root</code> per SSH, obligant a usar un compte d'usuari i després elevar privilegis amb <code>sudo</code>.</p>
+<h3 id="limitacio-dintents-dautenticacio">⏱️ Limitació d'Intents d'Autenticació<a class="headerlink" href="#limitacio-dintents-dautenticacio" title="Permanent link">&para;</a></h3>
+<p>Limitem el nombre d'intents de contrasenya per connexió:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>MaxAuthTries 3
+</code></pre></div>
+<h3 id="temps-maxim-de-login">🕐 Temps Màxim de Login<a class="headerlink" href="#temps-maxim-de-login" title="Permanent link">&para;</a></h3>
+<p>Establim un temps límit per completar l'autenticació:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>LoginGraceTime 30
+</code></pre></div>
+<h3 id="desactivacio-de-lautenticacio-per-contrasenya-recomanat">📝 Desactivació de l'Autenticació per Contrasenya (Recomanat)<a class="headerlink" href="#desactivacio-de-lautenticacio-per-contrasenya-recomanat" title="Permanent link">&para;</a></h3>
+<p>Si s'utilitzen <strong>claus SSH</strong>, es pot desactivar l'autenticació per contrasenya completament per evitar atacs de força bruta:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>PasswordAuthentication no
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>PubkeyAuthentication yes
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Atenció abans de desactivar contrasenyes</p>
+<p><strong>Assegura't de tindre les teues claus SSH correctament configurades</strong> i provades abans de desactivar l'autenticació per contrasenya. Si perds l'accés, necessitaràs accés físic o per consola al servidor.</p>
+</div>
+<h3 id="desament-i-reinici-del-servei-ssh">Desament i reinici del servei SSH<a class="headerlink" href="#desament-i-reinici-del-servei-ssh" title="Permanent link">&para;</a></h3>
+<p>Guardem els canvis amb <code>Ctrl + O</code>, <code>Enter</code> i sortim amb <code>Ctrl + X</code>.</p>
+<p>Reiniciem el servei SSH per aplicar els canvis:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>sshd
+</code></pre></div>
+<p>Verifiquem que SSH escolta ara al port 2222:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo<span class="w"> </span>ss<span class="w"> </span>-tlnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sshd
+</code></pre></div>
+<p>La sortida hauria de mostrar <code>*:2222</code> en comptes de <code>*:22</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Connexions SSH futures</p>
+<p>A partir d'ara, per connectar-se al servidor per SSH, s'haurà d'especificar el port:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>usuari@IP_DEL_SERVIDOR
+</code></pre></div></p>
+</div>
+<hr />
+<h2 id="pas-3-mesures-addicionals-de-seguretat">🔍 Pas 3: Mesures Addicionals de Seguretat<a class="headerlink" href="#pas-3-mesures-addicionals-de-seguretat" title="Permanent link">&para;</a></h2>
+<h3 id="installacio-de-fail2ban">Instal·lació de Fail2Ban<a class="headerlink" href="#installacio-de-fail2ban" title="Permanent link">&para;</a></h3>
+<p><strong>Fail2Ban</strong> monitoritza els fitxers de log i bloqueja automàticament les IPs que superen un nombre d'intents fallits d'autenticació:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>fail2ban<span class="w"> </span>-y
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>fail2ban
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>fail2ban
+</code></pre></div>
+<p>Verifiquem el seu estat:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudo<span class="w"> </span>fail2ban-client<span class="w"> </span>status
+</code></pre></div>
+<h3 id="desactivacio-de-serveis-innecessaris">Desactivació de serveis innecessaris<a class="headerlink" href="#desactivacio-de-serveis-innecessaris" title="Permanent link">&para;</a></h3>
+<p>Llistem els serveis actius per identificar possibles candidats a desactivar:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>list-units<span class="w"> </span>--type<span class="o">=</span>service<span class="w"> </span>--state<span class="o">=</span>running
+</code></pre></div>
+<h3 id="actualitzacions-automatiques-de-seguretat">Actualitzacions automàtiques de seguretat<a class="headerlink" href="#actualitzacions-automatiques-de-seguretat" title="Permanent link">&para;</a></h3>
+<p>Instal·lem el paquet d'actualitzacions de seguretat desateses:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>unattended-upgrades<span class="w"> </span>-y
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>sudo<span class="w"> </span>dpkg-reconfigure<span class="w"> </span>--priority<span class="o">=</span>low<span class="w"> </span>unattended-upgrades
+</code></pre></div>
+<hr />
+<h2 id="resum-de-mesures-de-seguretat-aplicades">📋 Resum de Mesures de Seguretat Aplicades<a class="headerlink" href="#resum-de-mesures-de-seguretat-aplicades" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Mesura</th>
+<th style="text-align: center;">Estat</th>
+<th>Detall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firewall UFW actiu</td>
+<td style="text-align: center;">✅</td>
+<td>Política <code>deny incoming</code> per defecte</td>
+</tr>
+<tr>
+<td>Port SSH canviat</td>
+<td style="text-align: center;">✅</td>
+<td>Port 22 → Port <strong>2222</strong></td>
+</tr>
+<tr>
+<td>Login root per SSH desactivat</td>
+<td style="text-align: center;">✅</td>
+<td><code>PermitRootLogin no</code></td>
+</tr>
+<tr>
+<td>Màxim d'intents SSH limitat</td>
+<td style="text-align: center;">✅</td>
+<td><code>MaxAuthTries 3</code></td>
+</tr>
+<tr>
+<td>HTTP permès</td>
+<td style="text-align: center;">✅</td>
+<td>Port 80/tcp obert</td>
+</tr>
+<tr>
+<td>Fail2Ban instal·lat</td>
+<td style="text-align: center;">✅</td>
+<td>Bloqueig automàtic d'IPs sospitoses</td>
+</tr>
+<tr>
+<td>Actualitzacions automàtiques</td>
+<td style="text-align: center;">✅</td>
+<td><code>unattended-upgrades</code> actiu</td>
+</tr>
+<tr>
+<td>Accés remot root desactivat</td>
+<td style="text-align: center;">✅</td>
+<td><code>PermitRootLogin no</code> en sshd_config</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Revisió periòdica</p>
+<p>La seguretat no és un estat, és un <strong>procés continu</strong>. Cal revisar regularment:</p>
+<ul>
+<li>Els logs de Fail2Ban: <code>sudo fail2ban-client status sshd</code></li>
+<li>Les regles del firewall: <code>sudo ufw status verbose</code></li>
+<li>Els logs d'autenticació: <code>sudo tail -f /var/log/auth.log</code></li>
+<li>Les actualitzacions pendents: <code>sudo apt list --upgradable</code></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Torna a l'inici
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2024 SRE-Docs · Adrián, Carles, Michael i Javi · Projecte 1r ASIR
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sre-docs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
