@@ -73,7 +73,7 @@ extra:
     - name: Javi
       role: Auditor / sys-monitor
 
-copyright: "© 2024 SRE-Docs · Adrián, Carles, Michael y Javi · Proyecto 1º ASIR"
+copyright: "© 2026 SRE-Docs · Adrián, Carles, Michael y Javi · Proyecto 1º ASIR"
 
 nav:
   - Inicio: index.md
