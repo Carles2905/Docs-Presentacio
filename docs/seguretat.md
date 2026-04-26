@@ -1,78 +1,78 @@
-# 🔒 Seguretat i Hardening del Servidor
+# 🔒 Seguridad y Hardening del Servidor
 
-En aquesta secció es documenten totes les mesures de seguretat aplicades al servidor per reduir la superfície d'atac i protegir els serveis desplegats. L'**hardening** (enduriment) és el procés de configurar el sistema per eliminar vulnerabilitats innecessàries.
+En esta sección se documentan todas las medidas de seguridad aplicadas al servidor para reducir la superficie de ataque y proteger los servicios desplegados. El **hardening** (endurecimiento) es el proceso de configurar el sistema para eliminar vulnerabilidades innecesarias.
 
 ---
 
-## 🛡️ Pas 1: Configuració del Firewall amb UFW
+## 🛡️ Paso 1: Configuración del Firewall con UFW
 
-**UFW** (*Uncomplicated Firewall*) és la ferramenta de gestió de firewall per a Ubuntu/Debian. Permet definir regles senzilles per controlar el tràfic de xarxa entrant i eixint del servidor.
+**UFW** (*Uncomplicated Firewall*) es la herramienta de gestión de firewall para Ubuntu/Debian. Permite definir reglas sencillas para controlar el tráfico de red entrante y saliente del servidor.
 
-### Comprovació de l'estat inicial
+### Comprobación del estado inicial
 
 ```bash
 sudo ufw status
 ```
 
-Si el firewall no està actiu, la resposta serà `Status: inactive`.
+Si el firewall no está activo, la respuesta será `Status: inactive`.
 
-### Política per defecte: denegar tot
+### Política por defecto: denegar todo
 
-Abans d'afegir regles, establim una política restrictiva que **bloqueja tot el tràfic entrant** i permet tot el sortint:
+Antes de añadir reglas, establecemos una política restrictiva que **bloquea todo el tráfico entrante** y permite todo el saliente:
 
 ```bash
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 ```
 
-!!! warning "Important: ordre de configuració"
-    **Sempre afegeix les regles necessàries ABANS d'activar el firewall.** Si actives UFW sense permetre SSH, perdràs l'accés remot al servidor.
+!!! warning "Importante: orden de configuración"
+    **Añade siempre las reglas necesarias ANTES de activar el firewall.** Si activas UFW sin permitir SSH, perderás el acceso remoto al servidor.
 
-### Permetre SSH (connexions remotes)
+### Permitir SSH (conexiones remotas)
 
-Permetem l'accés SSH al servidor. Com hem canviat el port per defecte a **2222** (veure secció [Canvi de Port SSH](#pas-2-hardening-del-servei-ssh)), hem d'especificar-lo:
+Permitimos el acceso SSH al servidor. Como hemos cambiado el puerto por defecto a **2222** (ver sección [Cambio de Puerto SSH](#paso-2-hardening-del-servicio-ssh)), debemos especificarlo:
 
 ```bash
 sudo ufw allow ssh
 ```
 
-O directament per port, en cas d'haver modificat el port al 2222:
+O directamente por puerto, en caso de haber modificado el puerto a 2222:
 
 ```bash
 sudo ufw allow 2222/tcp
 ```
 
-### Permetre HTTP (tràfic web)
+### Permitir HTTP (tráfico web)
 
-Permetem el tràfic web entrant al port 80 (HTTP):
+Permitimos el tráfico web entrante en el puerto 80 (HTTP):
 
 ```bash
 sudo ufw allow 80/tcp
 ```
 
-Si en el futur s'afig un certificat SSL, s'haurà de permetre també el port 443 (HTTPS):
+Si en el futuro se añade un certificado SSL, habrá que permitir también el puerto 443 (HTTPS):
 
 ```bash
 sudo ufw allow 443/tcp
 ```
 
-### Activació del Firewall
+### Activación del Firewall
 
-Un cop configurades les regles, activem UFW:
+Una vez configuradas las reglas, activamos UFW:
 
 ```bash
 sudo ufw enable
 ```
 
-El sistema demanarà confirmació. Escrivim `y` i premem `Enter`.
+El sistema pedirá confirmación. Escribimos `y` y pulsamos `Enter`.
 
-### Verificació de les regles actives
+### Verificación de las reglas activas
 
 ```bash
 sudo ufw status verbose
 ```
 
-La sortida esperada és similar a:
+La salida esperada es similar a:
 
 ```
 Status: active
@@ -90,117 +90,117 @@ To                         Action      From
 443/tcp (v6)               ALLOW IN    Anywhere (v6)
 ```
 
-!!! success "Firewall actiu"
-    El servidor ara bloqueja tot el tràfic entrant excepte SSH (port 2222) i HTTP (port 80). Qualsevol altre port no inclòs en les regles serà rebutjat automàticament.
+!!! success "Firewall activo"
+    El servidor ahora bloquea todo el tráfico entrante excepto SSH (puerto 2222) y HTTP (puerto 80). Cualquier otro puerto no incluido en las reglas será rechazado automáticamente.
 
 ---
 
-## 🔑 Pas 2: Hardening del Servei SSH
+## 🔑 Paso 2: Hardening del Servicio SSH
 
-SSH (*Secure Shell*) és el protocol principal d'accés remot al servidor. La seua configuració per defecte presenta diverses vulnerabilitats que s'han de corregir.
+SSH (*Secure Shell*) es el protocolo principal de acceso remoto al servidor. Su configuración por defecto presenta varias vulnerabilidades que deben corregirse.
 
-### Edició del fitxer de configuració SSH
+### Edición del fichero de configuración SSH
 
-El fitxer de configuració principal d'SSH és `/etc/ssh/sshd_config`. L'editem com a root:
+El fichero de configuración principal de SSH es `/etc/ssh/sshd_config`. Lo editamos como root:
 
 ```bash
 sudo nano /etc/ssh/sshd_config
 ```
 
-### 🔄 Canvi del Port per Defecte
+### 🔄 Cambio del Puerto por Defecto
 
-El port per defecte d'SSH és el **22**, que és escanejat constantment per bots i atacants automatitzats. Canviem-lo al **2222** per reduir la seua exposició.
+El puerto por defecto de SSH es el **22**, que es escaneado constantemente por bots y atacantes automatizados. Lo cambiamos al **2222** para reducir su exposición.
 
-Localitzem la línia:
+Localizamos la línea:
 
 ```
 #Port 22
 ```
 
-I la substituïm per:
+Y la sustituimos por:
 
 ```
 Port 2222
 ```
 
-!!! info "Per què canviar el port?"
-    Canviar el port SSH **no és una mesura de seguretat definitiva** per si sola (seguretat per obscuritat), però redueix significativament el soroll dels atacs automatitzats de força bruta, que solen apuntar sempre al port 22. S'ha de combinar amb altres mesures com la desactivació de `root` i les claus SSH.
+!!! info "¿Por qué cambiar el puerto?"
+    Cambiar el puerto SSH **no es una medida de seguridad definitiva** por sí sola (seguridad por oscuridad), pero reduce significativamente el ruido de los ataques automatizados de fuerza bruta, que suelen apuntar siempre al puerto 22. Debe combinarse con otras medidas como la desactivación de `root` y las claves SSH.
 
-### 🚫 Desactivació del Login Directe com a Root
+### 🚫 Desactivación del Login Directo como Root
 
-Localitzem la línia:
+Localizamos la línea:
 
 ```
 #PermitRootLogin prohibit-password
 ```
 
-I la substituïm per:
+Y la sustituimos por:
 
 ```
 PermitRootLogin no
 ```
 
-Açò impedeix que ningú puga connectar-se directament com a `root` per SSH, obligant a usar un compte d'usuari i després elevar privilegis amb `sudo`.
+Esto impide que nadie pueda conectarse directamente como `root` por SSH, obligando a usar una cuenta de usuario y después elevar privilegios con `sudo`.
 
-### ⏱️ Limitació d'Intents d'Autenticació
+### ⏱️ Limitación de Intentos de Autenticación
 
-Limitem el nombre d'intents de contrasenya per connexió:
+Limitamos el número de intentos de contraseña por conexión:
 
 ```
 MaxAuthTries 3
 ```
 
-### 🕐 Temps Màxim de Login
+### 🕐 Tiempo Máximo de Login
 
-Establim un temps límit per completar l'autenticació:
+Establecemos un tiempo límite para completar la autenticación:
 
 ```
 LoginGraceTime 30
 ```
 
-### 📝 Desactivació de l'Autenticació per Contrasenya (Recomanat)
+### 📝 Desactivación de la Autenticación por Contraseña (Recomendado)
 
-Si s'utilitzen **claus SSH**, es pot desactivar l'autenticació per contrasenya completament per evitar atacs de força bruta:
+Si se utilizan **claves SSH**, se puede desactivar la autenticación por contraseña completamente para evitar ataques de fuerza bruta:
 
 ```
 PasswordAuthentication no
 PubkeyAuthentication yes
 ```
 
-!!! danger "Atenció abans de desactivar contrasenyes"
-    **Assegura't de tindre les teues claus SSH correctament configurades** i provades abans de desactivar l'autenticació per contrasenya. Si perds l'accés, necessitaràs accés físic o per consola al servidor.
+!!! danger "Atención antes de desactivar contraseñas"
+    **Asegúrate de tener tus claves SSH correctamente configuradas** y probadas antes de desactivar la autenticación por contraseña. Si pierdes el acceso, necesitarás acceso físico o por consola al servidor.
 
-### Desament i reinici del servei SSH
+### Guardado y reinicio del servicio SSH
 
-Guardem els canvis amb `Ctrl + O`, `Enter` i sortim amb `Ctrl + X`.
+Guardamos los cambios con `Ctrl + O`, `Enter` y salimos con `Ctrl + X`.
 
-Reiniciem el servei SSH per aplicar els canvis:
+Reiniciamos el servicio SSH para aplicar los cambios:
 
 ```bash
 sudo systemctl restart sshd
 ```
 
-Verifiquem que SSH escolta ara al port 2222:
+Verificamos que SSH escucha ahora en el puerto 2222:
 
 ```bash
 sudo ss -tlnp | grep sshd
 ```
 
-La sortida hauria de mostrar `*:2222` en comptes de `*:22`.
+La salida debería mostrar `*:2222` en lugar de `*:22`.
 
-!!! warning "Connexions SSH futures"
-    A partir d'ara, per connectar-se al servidor per SSH, s'haurà d'especificar el port:
+!!! warning "Conexiones SSH futuras"
+    A partir de ahora, para conectarse al servidor por SSH, habrá que especificar el puerto:
     ```bash
-    ssh -p 2222 usuari@IP_DEL_SERVIDOR
+    ssh -p 2222 usuario@IP_DEL_SERVIDOR
     ```
 
 ---
 
-## 🔍 Pas 3: Mesures Addicionals de Seguretat
+## 🔍 Paso 3: Medidas Adicionales de Seguridad
 
-### Instal·lació de Fail2Ban
+### Instalación de Fail2Ban
 
-**Fail2Ban** monitoritza els fitxers de log i bloqueja automàticament les IPs que superen un nombre d'intents fallits d'autenticació:
+**Fail2Ban** monitoriza los ficheros de log y bloquea automáticamente las IPs que superan un número de intentos fallidos de autenticación:
 
 ```bash
 sudo apt install fail2ban -y
@@ -208,23 +208,23 @@ sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
 ```
 
-Verifiquem el seu estat:
+Verificamos su estado:
 
 ```bash
 sudo fail2ban-client status
 ```
 
-### Desactivació de serveis innecessaris
+### Desactivación de servicios innecesarios
 
-Llistem els serveis actius per identificar possibles candidats a desactivar:
+Listamos los servicios activos para identificar posibles candidatos a desactivar:
 
 ```bash
 sudo systemctl list-units --type=service --state=running
 ```
 
-### Actualitzacions automàtiques de seguretat
+### Actualizaciones automáticas de seguridad
 
-Instal·lem el paquet d'actualitzacions de seguretat desateses:
+Instalamos el paquete de actualizaciones de seguridad desatendidas:
 
 ```bash
 sudo apt install unattended-upgrades -y
@@ -233,25 +233,25 @@ sudo dpkg-reconfigure --priority=low unattended-upgrades
 
 ---
 
-## 📋 Resum de Mesures de Seguretat Aplicades
+## 📋 Resumen de Medidas de Seguridad Aplicadas
 
-| Mesura | Estat | Detall |
-|--------|:-----:|--------|
-| Firewall UFW actiu | ✅ | Política `deny incoming` per defecte |
-| Port SSH canviat | ✅ | Port 22 → Port **2222** |
-| Login root per SSH desactivat | ✅ | `PermitRootLogin no` |
-| Màxim d'intents SSH limitat | ✅ | `MaxAuthTries 3` |
-| HTTP permès | ✅ | Port 80/tcp obert |
-| Fail2Ban instal·lat | ✅ | Bloqueig automàtic d'IPs sospitoses |
-| Actualitzacions automàtiques | ✅ | `unattended-upgrades` actiu |
-| Accés remot root desactivat | ✅ | `PermitRootLogin no` en sshd_config |
+| Medida | Estado | Detalle |
+|--------|:-----:|---------|
+| Firewall UFW activo | ✅ | Política `deny incoming` por defecto |
+| Puerto SSH cambiado | ✅ | Puerto 22 → Puerto **2222** |
+| Login root por SSH desactivado | ✅ | `PermitRootLogin no` |
+| Máximo de intentos SSH limitado | ✅ | `MaxAuthTries 3` |
+| HTTP permitido | ✅ | Puerto 80/tcp abierto |
+| Fail2Ban instalado | ✅ | Bloqueo automático de IPs sospechosas |
+| Actualizaciones automáticas | ✅ | `unattended-upgrades` activo |
+| Acceso remoto root desactivado | ✅ | `PermitRootLogin no` en sshd_config |
 
 ---
 
-!!! note "Revisió periòdica"
-    La seguretat no és un estat, és un **procés continu**. Cal revisar regularment:
+!!! note "Revisión periódica"
+    La seguridad no es un estado, es un **proceso continuo**. Hay que revisar regularmente:
 
-    - Els logs de Fail2Ban: `sudo fail2ban-client status sshd`
-    - Les regles del firewall: `sudo ufw status verbose`
-    - Els logs d'autenticació: `sudo tail -f /var/log/auth.log`
-    - Les actualitzacions pendents: `sudo apt list --upgradable`
+    - Los logs de Fail2Ban: `sudo fail2ban-client status sshd`
+    - Las reglas del firewall: `sudo ufw status verbose`
+    - Los logs de autenticación: `sudo tail -f /var/log/auth.log`
+    - Las actualizaciones pendientes: `sudo apt list --upgradable`

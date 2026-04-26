@@ -1,67 +1,67 @@
-# 👤 Gestió de Rols i Usuaris
+# 👤 Gestión de Roles y Usuarios
 
-En aquesta secció es documenta la creació i configuració de tots els usuaris del sistema, aplicant el **Principi de Mínim Privilegi** (*Principle of Least Privilege*): cada usuari disposa únicament dels permisos imprescindibles per realitzar les seues funcions i res més.
-
----
-
-## 🔐 Principi de Mínim Privilegi
-
-El principi de mínim privilegi estableix que **cap usuari, procés o servei ha de tenir més permisos dels estrictament necessaris** per a la seua funció. Açò redueix la superfície d'atac del sistema: si un compte és compromès, el dany possible queda limitat als recursos als quals aquell usuari tenia accés.
+En esta sección se documenta la creación y configuración de todos los usuarios del sistema, aplicando el **Principio de Mínimo Privilegio** (*Principle of Least Privilege*): cada usuario dispone únicamente de los permisos imprescindibles para realizar sus funciones y nada más.
 
 ---
 
-## 👑 Usuari: `root` — Adrián (Scrum Master)
+## 🔐 Principio de Mínimo Privilegio
 
-### Descripció
+El principio de mínimo privilegio establece que **ningún usuario, proceso o servicio debe tener más permisos de los estrictamente necesarios** para su función. Esto reduce la superficie de ataque del sistema: si una cuenta es comprometida, el daño posible queda limitado a los recursos a los que ese usuario tenía acceso.
 
-L'usuari `root` és el superusuari del sistema Linux amb **accés il·limitat** a tots els fitxers, serveis i configuracions. En el nostre projecte, aquest rol correspon a **Adrián**, que actua com a Scrum Master i responsable tècnic global.
+---
+
+## 👑 Usuario: `root` — Adrián (Scrum Master)
+
+### Descripción
+
+El usuario `root` es el superusuario del sistema Linux con **acceso ilimitado** a todos los ficheros, servicios y configuraciones. En nuestro proyecto, este rol corresponde a **Adrián**, que actúa como Scrum Master y responsable técnico global.
 
 ### Permisos
 
-- ✅ Accés total a tots els directoris del sistema
-- ✅ Capacitat per instal·lar i desinstal·lar paquets
-- ✅ Gestió de serveis amb `systemctl`
-- ✅ Creació i eliminació d'usuaris
-- ✅ Modificació de qualsevol fitxer de configuració
+- ✅ Acceso total a todos los directorios del sistema
+- ✅ Capacidad para instalar y desinstalar paquetes
+- ✅ Gestión de servicios con `systemctl`
+- ✅ Creación y eliminación de usuarios
+- ✅ Modificación de cualquier fichero de configuración
 
-### Consideracions de Seguretat
+### Consideraciones de Seguridad
 
-!!! danger "Ús responsable del root"
-    L'accés com a `root` ha d'usar-se **únicament per a tasques que ho requerisquen explícitament**. Per a tasques quotidianes s'hauria d'usar `sudo` des d'un compte personal amb privilegis limitats.
+!!! danger "Uso responsable del root"
+    El acceso como `root` debe usarse **únicamente para tareas que lo requieran explícitamente**. Para tareas cotidianas se debería usar `sudo` desde una cuenta personal con privilegios limitados.
 
-L'accés SSH directe com a `root` està **desactivat** en la configuració de seguretat (veure secció [Seguretat i Hardening](seguretat.md)).
+El acceso SSH directo como `root` está **desactivado** en la configuración de seguridad (ver sección [Seguridad y Hardening](seguretat.md)).
 
 ---
 
-## 🌐 Usuari: `admin-web` — Carles (Administrador Web)
+## 🌐 Usuario: `admin-web` — Carles (Administrador Web)
 
-### Descripció
+### Descripción
 
-L'usuari `admin-web` és el responsable del servidor web Apache. **Carles** gestiona els fitxers de l'aplicació web, els *virtual hosts* i el contingut públic del servidor, sense tenir accés a la base de dades ni als logs del sistema.
+El usuario `admin-web` es el responsable del servidor web Apache. **Carles** gestiona los ficheros de la aplicación web, los *virtual hosts* y el contenido público del servidor, sin tener acceso a la base de datos ni a los logs del sistema.
 
-### Creació de l'usuari
+### Creación del usuario
 
 ```bash
 sudo adduser admin-web
 ```
 
-Durant la creació, s'assignarà una contrasenya i s'ompliran les dades opcionals (nom complet, etc.).
+Durante la creación, se asignará una contraseña y se rellenarán los datos opcionales (nombre completo, etc.).
 
-### Assignació de propietat del directori web
+### Asignación de propiedad del directorio web
 
-L'usuari `admin-web` ha de ser el **propietari** del directori `/var/www/html` per poder gestionar els fitxers de la web sense necessitar permisos de `root`:
+El usuario `admin-web` debe ser el **propietario** del directorio `/var/www/html` para poder gestionar los ficheros de la web sin necesitar permisos de `root`:
 
 ```bash
 sudo chown -R admin-web:admin-web /var/www/html
 ```
 
-Ajustem els permisos del directori perquè siguen correctes:
+Ajustamos los permisos del directorio para que sean correctos:
 
 ```bash
 sudo chmod -R 755 /var/www/html
 ```
 
-Verifiquem que la propietat s'ha assignat correctament:
+Verificamos que la propiedad se ha asignado correctamente:
 
 ```bash
 ls -la /var/www/html
@@ -69,17 +69,17 @@ ls -la /var/www/html
 
 ### Permisos
 
-| Recurs | Permís |
-|--------|--------|
-| `/var/www/html` | ✅ Lectura i escriptura (propietari) |
-| `/etc/apache2` | ❌ Sense accés |
-| `/var/log` | ❌ Sense accés |
-| MariaDB | ❌ Sense accés |
-| `sudo` | ❌ No té privilegis sudo |
+| Recurso | Permiso |
+|--------|---------|
+| `/var/www/html` | ✅ Lectura y escritura (propietario) |
+| `/etc/apache2` | ❌ Sin acceso |
+| `/var/log` | ❌ Sin acceso |
+| MariaDB | ❌ Sin acceso |
+| `sudo` | ❌ No tiene privilegios sudo |
 
-### Canvi d'identitat per operar
+### Cambio de identidad para operar
 
-Per treballar com a `admin-web`, Adrián (root) pot fer:
+Para trabajar como `admin-web`, Adrián (root) puede hacer:
 
 ```bash
 sudo su - admin-web
@@ -87,29 +87,29 @@ sudo su - admin-web
 
 ---
 
-## 🗄️ Usuari: `db-backup` — Michael (Seguretat i Backups)
+## 🗄️ Usuario: `db-backup` — Michael (Seguridad y Backups)
 
-### Descripció
+### Descripción
 
-L'usuari `db-backup` té com a única funció la realització de **còpies de seguretat de les bases de dades** de MariaDB. **Michael** és el responsable de configurar i executar els scripts de `mysqldump`. No té accés al sistema de fitxers web ni als logs del sistema.
+El usuario `db-backup` tiene como única función la realización de **copias de seguridad de las bases de datos** de MariaDB. **Michael** es el responsable de configurar y ejecutar los scripts de `mysqldump`. No tiene acceso al sistema de ficheros web ni a los logs del sistema.
 
-### Creació de l'usuari del sistema
+### Creación del usuario del sistema
 
 ```bash
 sudo adduser --system --no-create-home --shell /bin/bash db-backup
 ```
 
-L'opció `--system` crea un usuari del sistema sense directori personal, adequat per a tasques automatitzades.
+La opción `--system` crea un usuario del sistema sin directorio personal, adecuado para tareas automatizadas.
 
-### Creació de l'usuari a MariaDB
+### Creación del usuario en MariaDB
 
-Creem un usuari a MariaDB amb permisos de lectura per a la realització de còpies:
+Creamos un usuario en MariaDB con permisos de lectura para la realización de copias:
 
 ```bash
 sudo mysql -u root -p
 ```
 
-Un cop dins del prompt de MariaDB:
+Una vez dentro del prompt de MariaDB:
 
 ```sql
 CREATE USER 'db-backup'@'localhost' IDENTIFIED BY 'BackupPass_2024!';
@@ -118,32 +118,32 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
-### Script de còpia de seguretat
+### Script de copia de seguridad
 
-Creem el directori on es guardaran les còpies:
+Creamos el directorio donde se guardarán las copias:
 
 ```bash
 sudo mkdir -p /var/backups/mysql
 sudo chown db-backup:db-backup /var/backups/mysql
 ```
 
-Creem el script de còpia automàtica:
+Creamos el script de copia automática:
 
 ```bash
 sudo nano /usr/local/bin/backup-db.sh
 ```
 
-Contingut del script:
+Contenido del script:
 
 ```bash
 #!/bin/bash
-DATA=$(date +%Y-%m-%d_%H-%M-%S)
+FECHA=$(date +%Y-%m-%d_%H-%M-%S)
 DEST="/var/backups/mysql"
-mysqldump -u db-backup -pBackupPass_2024! --all-databases > "$DEST/backup_$DATA.sql"
-echo "Còpia realitzada: backup_$DATA.sql"
+mysqldump -u db-backup -pBackupPass_2024! --all-databases > "$DEST/backup_$FECHA.sql"
+echo "Copia realizada: backup_$FECHA.sql"
 ```
 
-Donem permisos d'execució al script:
+Damos permisos de ejecución al script:
 
 ```bash
 sudo chmod +x /usr/local/bin/backup-db.sh
@@ -152,61 +152,61 @@ sudo chown db-backup:db-backup /usr/local/bin/backup-db.sh
 
 ### Permisos
 
-| Recurs | Permís |
-|--------|--------|
-| `/var/backups/mysql` | ✅ Lectura i escriptura (propietari) |
-| MariaDB (lectura) | ✅ `SELECT`, `LOCK TABLES` sobre totes les bases de dades |
-| `/var/www/html` | ❌ Sense accés |
-| `/var/log` | ❌ Sense accés |
-| `sudo` | ❌ No té privilegis sudo |
+| Recurso | Permiso |
+|--------|---------|
+| `/var/backups/mysql` | ✅ Lectura y escritura (propietario) |
+| MariaDB (lectura) | ✅ `SELECT`, `LOCK TABLES` sobre todas las bases de datos |
+| `/var/www/html` | ❌ Sin acceso |
+| `/var/log` | ❌ Sin acceso |
+| `sudo` | ❌ No tiene privilegios sudo |
 
 ---
 
-## 📊 Usuari: `sys-monitor` — Javi (Auditor del Sistema)
+## 📊 Usuario: `sys-monitor` — Javi (Auditor del Sistema)
 
-### Descripció
+### Descripción
 
-L'usuari `sys-monitor` és l'encarregat de l'**auditoria i monitoratge del servidor**. **Javi** revisa els fitxers de log del sistema per detectar errors, accessos no autoritzats o comportaments anòmals. Té permisos de **només lectura** i no pot modificar cap configuració.
+El usuario `sys-monitor` es el encargado de la **auditoría y monitorización del servidor**. **Javi** revisa los ficheros de log del sistema para detectar errores, accesos no autorizados o comportamientos anómalos. Tiene permisos de **solo lectura** y no puede modificar ninguna configuración.
 
-### Creació de l'usuari
+### Creación del usuario
 
 ```bash
 sudo adduser sys-monitor
 ```
 
-### Configuració de permisos de lectura als logs
+### Configuración de permisos de lectura en los logs
 
-Afegim `sys-monitor` al grup `adm`, que en Ubuntu/Debian té accés de lectura als logs del sistema:
+Añadimos `sys-monitor` al grupo `adm`, que en Ubuntu/Debian tiene acceso de lectura a los logs del sistema:
 
 ```bash
 sudo usermod -aG adm sys-monitor
 ```
 
-Verifiquem que l'usuari pertany al grup `adm`:
+Verificamos que el usuario pertenece al grupo `adm`:
 
 ```bash
 groups sys-monitor
 ```
 
-### Verificació d'accés als logs
+### Verificación de acceso a los logs
 
-L'usuari `sys-monitor` podrà llegir fitxers com:
+El usuario `sys-monitor` podrá leer ficheros como:
 
 ```bash
-# Logs d'autenticació (SSH, sudo, etc.)
+# Logs de autenticación (SSH, sudo, etc.)
 tail -n 100 /var/log/auth.log
 
-# Logs generals del sistema
+# Logs generales del sistema
 tail -n 100 /var/log/syslog
 
-# Logs d'Apache
+# Logs de Apache
 tail -n 100 /var/log/apache2/access.log
 tail -n 100 /var/log/apache2/error.log
 ```
 
-### Restriccions addicionals
+### Restricciones adicionales
 
-Restricció de l'accés al directori `/var/www/html`:
+Restricción del acceso al directorio `/var/www/html`:
 
 ```bash
 sudo chmod o-rx /var/www/html
@@ -214,33 +214,33 @@ sudo chmod o-rx /var/www/html
 
 ### Permisos
 
-| Recurs | Permís |
-|--------|--------|
-| `/var/log` | ✅ Lectura (membre del grup `adm`) |
+| Recurso | Permiso |
+|--------|---------|
+| `/var/log` | ✅ Lectura (miembro del grupo `adm`) |
 | `/var/log/apache2` | ✅ Lectura |
-| `/var/www/html` | ❌ Sense accés |
-| MariaDB | ❌ Sense accés |
-| `sudo` | ❌ No té privilegis sudo |
+| `/var/www/html` | ❌ Sin acceso |
+| MariaDB | ❌ Sin acceso |
+| `sudo` | ❌ No tiene privilegios sudo |
 
 ---
 
-## 📋 Resum de Tots els Usuaris
+## 📋 Resumen de Todos los Usuarios
 
-| Usuari | Membre de l'equip | Rol | Directori principal | Accés sudo | Accés MariaDB |
-|--------|-------------------|-----|--------------------|-----------:|:-------------:|
+| Usuario | Miembro del equipo | Rol | Directorio principal | Acceso sudo | Acceso MariaDB |
+|--------|-------------------|-----|---------------------|:-----------:|:--------------:|
 | `root` | Adrián | Scrum Master / Admin total | `/root` | ✅ Total | ✅ Total |
 | `admin-web` | Carles | Administrador Web | `/var/www/html` | ❌ | ❌ |
-| `db-backup` | Michael | Seguretat / Backups | `/var/backups/mysql` | ❌ | ✅ Lectura |
-| `sys-monitor` | Javi | Auditor / Monitoratge | `/var/log` (lectura) | ❌ | ❌ |
+| `db-backup` | Michael | Seguridad / Backups | `/var/backups/mysql` | ❌ | ✅ Lectura |
+| `sys-monitor` | Javi | Auditor / Monitorización | `/var/log` (lectura) | ❌ | ❌ |
 
 ---
 
-!!! note "Verificació global d'usuaris"
-    Per veure tots els usuaris creats al sistema:
+!!! note "Verificación global de usuarios"
+    Para ver todos los usuarios creados en el sistema:
     ```bash
     cat /etc/passwd | grep -v nologin | grep -v false
     ```
-    Per veure els grups de cada usuari:
+    Para ver los grupos de cada usuario:
     ```bash
     for user in admin-web db-backup sys-monitor; do echo "$user: $(groups $user)"; done
     ```

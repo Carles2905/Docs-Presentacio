@@ -1,80 +1,80 @@
-# 🖥️ Benvinguts a SRE-Docs
+# 🖥️ Bienvenidos a SRE-Docs
 
-**Documentació i Desplegament de Servidors** és un projecte de simulació d'infraestructura empresarial desenvolupat en el marc del mòdul de **Sistemes de la Informació** de 1r ASIR.
+**Documentación y Despliegue de Servidores** es un proyecto de simulación de infraestructura empresarial desarrollado en el marco del módulo de **Sistemas de la Información** de 1º ASIR.
 
-L'objectiu d'aquest portal és documentar de manera clara i professional el desplegament d'un servidor corporatiu amb pila **LAMP** (Linux, Apache, MariaDB i PHP), així com les mesures de seguretat i gestió d'usuaris aplicades.
-
----
-
-## 📋 Descripció del Projecte
-
-El projecte simula l'entorn real d'una empresa en obert, on es configura un servidor Ubuntu/Debian amb els serveis mínims necessaris per allotjar una aplicació web. S'han aplicat bones pràctiques de seguretat, principi de mínim privilegi i documentació de tot el procés.
-
-| Element          | Detall                              |
-|------------------|-------------------------------------|
-| **Sistema Operatiu** | Ubuntu 22.04 LTS Server         |
-| **Pila de Serveis** | LAMP (Apache2, MariaDB, PHP 8.x) |
-| **Gestió d'Accés** | Usuaris amb rols diferenciats     |
-| **Seguretat** | UFW Firewall + Hardening SSH        |
-| **Metodologia** | Scrum (sprints setmanals)           |
+El objetivo de este portal es documentar de manera clara y profesional el despliegue de un servidor corporativo con pila **LAMP** (Linux, Apache, MariaDB y PHP), así como las medidas de seguridad y gestión de usuarios aplicadas.
 
 ---
 
-## 👥 Equip de Treball
+## 📋 Descripción del Proyecto
 
-El projecte ha estat desenvolupat per un equip de quatre persones, cadascuna amb un rol tècnic i un usuari del sistema assignat:
+El proyecto simula el entorno real de una empresa en producción, donde se configura un servidor Ubuntu/Debian con los servicios mínimos necesarios para alojar una aplicación web. Se han aplicado buenas prácticas de seguridad, principio de mínimo privilegio y documentación de todo el proceso.
+
+| Elemento          | Detalle                              |
+|------------------|--------------------------------------|
+| **Sistema Operativo** | Ubuntu 22.04 LTS Server         |
+| **Pila de Servicios** | LAMP (Apache2, MariaDB, PHP 8.x) |
+| **Gestión de Acceso** | Usuarios con roles diferenciados  |
+| **Seguridad** | UFW Firewall + Hardening SSH         |
+| **Metodología** | Scrum (sprints semanales)            |
+
+---
+
+## 👥 Equipo de Trabajo
+
+El proyecto ha sido desarrollado por un equipo de cuatro personas, cada una con un rol técnico y un usuario del sistema asignado:
 
 ### 🔴 Adrián — Scrum Master / `root`
 
-- **Rol en el projecte:** Scrum Master i líder tècnic. Coordina les tasques setmanals, gestiona el repositori i supervisa el desplegament global.
-- **Usuari del sistema:** `root`
-- **Permisos:** Accés total al servidor. Responsable de la configuració inicial i de les tasques d'administració sistèmica.
+- **Rol en el proyecto:** Scrum Master y líder técnico. Coordina las tareas semanales, gestiona el repositorio y supervisa el despliegue global.
+- **Usuario del sistema:** `root`
+- **Permisos:** Acceso total al servidor. Responsable de la configuración inicial y de las tareas de administración sistémica.
 
 ---
 
 ### 🔵 Carles — Administrador Web / `admin-web`
 
-- **Rol en el projecte:** Administrador del servidor web Apache. Gestiona els fitxers de la web, les configuracions de virtual hosts i el directori públic.
-- **Usuari del sistema:** `admin-web`
-- **Permisos:** Propietari del directori `/var/www/html`. Sense accés a la base de dades ni als logs del sistema.
+- **Rol en el proyecto:** Administrador del servidor web Apache. Gestiona los ficheros de la web, las configuraciones de virtual hosts y el directorio público.
+- **Usuario del sistema:** `admin-web`
+- **Permisos:** Propietario del directorio `/var/www/html`. Sin acceso a la base de datos ni a los logs del sistema.
 
 ---
 
-### 🟢 Michael — Seguretat i Backups / `db-backup`
+### 🟢 Michael — Seguridad y Backups / `db-backup`
 
-- **Rol en el projecte:** Responsable de la seguretat de la base de dades i de les còpies de seguretat. Configura i executa els scripts de `mysqldump`.
-- **Usuari del sistema:** `db-backup`
-- **Permisos:** Accés de lectura a les bases de dades de MariaDB per realitzar còpies. Sense accés al sistema de fitxers web.
+- **Rol en el proyecto:** Responsable de la seguridad de la base de datos y de las copias de seguridad. Configura y ejecuta los scripts de `mysqldump`.
+- **Usuario del sistema:** `db-backup`
+- **Permisos:** Acceso de lectura a las bases de datos de MariaDB para realizar copias. Sin acceso al sistema de ficheros web.
 
 ---
 
 ### 🟡 Javi — Auditor del Sistema / `sys-monitor`
 
-- **Rol en el projecte:** Responsable de l'auditoria i monitoratge del servidor. Revisa els logs del sistema per detectar errors o activitat sospitosa.
-- **Usuari del sistema:** `sys-monitor`
-- **Permisos:** Lectura de fitxers de log (`/var/log`). Sense permís d'escriptura en cap directori del sistema.
+- **Rol en el proyecto:** Responsable de la auditoría y monitorización del servidor. Revisa los logs del sistema para detectar errores o actividad sospechosa.
+- **Usuario del sistema:** `sys-monitor`
+- **Permisos:** Lectura de ficheros de log (`/var/log`). Sin permiso de escritura en ningún directorio del sistema.
 
 ---
 
-## 🗺️ Esquema de la Xarxa
+## 🗺️ Esquema de la Red
 
-A continuació es mostra el diagrama de l'arquitectura de xarxa de la infraestructura simulada:
+A continuación se muestra el diagrama de la arquitectura de red de la infraestructura simulada:
 
-![Esquema de la xarxa de la infraestructura del projecte SRE-Docs](img/esquema.png)
+![Esquema de la red de la infraestructura del proyecto SRE-Docs](img/esquema.png)
 
-> **Nota:** L'esquema mostra la topologia de xarxa amb el servidor LAMP al centre, el firewall UFW com a primera capa de protecció i els clients que hi accedeixen via HTTP i SSH.
-
----
-
-## 🗂️ Contingut del Portal
-
-| Secció | Descripció |
-|--------|------------|
-| [⚙️ Configuració de Servidors](servidors.md) | Instal·lació pas a pas de la pila LAMP |
-| [👤 Gestió de Rols i Usuaris](usuaris.md) | Creació d'usuaris i assignació de permisos |
-| [🔒 Seguretat i Hardening](seguretat.md) | Configuració del firewall i enduriment SSH |
+> **Nota:** El esquema muestra la topología de red con el servidor LAMP en el centro, el firewall UFW como primera capa de protección y los clientes que acceden vía HTTP y SSH.
 
 ---
 
-!!! info "Metodologia Scrum"
-    El projecte s'ha gestionat amb **Scrum**, dividint el treball en sprints setmanals. Cada membre de l'equip tenia tasques assignades que es revisaven en reunions diàries de seguiment (*daily standups*).
+## 🗂️ Contenido del Portal
+
+| Sección | Descripción |
+|--------|-------------|
+| [⚙️ Configuración de Servidores](servidors.md) | Instalación paso a paso de la pila LAMP |
+| [👤 Gestión de Roles y Usuarios](usuaris.md) | Creación de usuarios y asignación de permisos |
+| [🔒 Seguridad y Hardening](seguretat.md) | Configuración del firewall y endurecimiento SSH |
+
+---
+
+!!! info "Metodología Scrum"
+    El proyecto se ha gestionado con **Scrum**, dividiendo el trabajo en sprints semanales. Cada miembro del equipo tenía tareas asignadas que se revisaban en reuniones diarias de seguimiento (*daily standups*).

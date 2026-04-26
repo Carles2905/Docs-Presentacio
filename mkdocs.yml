@@ -1,6 +1,6 @@
-site_name: "Documentació i Desplegament de Servidors (SRE-Docs)"
-site_description: "Portal de documentació tècnica per al desplegament d'un servidor corporatiu LAMP i la seua seguretat."
-site_author: "Adrián, Carles, Michael i Javi"
+site_name: "Documentación y Despliegue de Servidores (SRE-Docs)"
+site_description: "Portal de documentación técnica para el despliegue de un servidor corporativo LAMP y su seguridad."
+site_author: "Adrián, Carles, Michael y Javi"
 site_url: "https://carles2905.github.io/Docs-Presentacio"
 
 repo_name: "Carles2905/Docs-Presentacio"
@@ -11,20 +11,20 @@ site_dir: site
 
 theme:
   name: material
-  language: ca
+  language: es
   palette:
     - scheme: default
       primary: indigo
       accent: deep purple
       toggle:
         icon: material/brightness-7
-        name: Canvia al mode fosc
+        name: Cambiar al modo oscuro
     - scheme: slate
       primary: indigo
       accent: deep purple
       toggle:
         icon: material/brightness-4
-        name: Canvia al mode clar
+        name: Cambiar al modo claro
   font:
     text: Roboto
     code: Roboto Mono
@@ -40,7 +40,7 @@ theme:
 
 plugins:
   - search:
-      lang: ca
+      lang: es
 
 markdown_extensions:
   - admonition
@@ -69,14 +69,14 @@ extra:
     - name: Carles
       role: Administrador Web / admin-web
     - name: Michael
-      role: Seguretat / db-backup
+      role: Seguridad / db-backup
     - name: Javi
       role: Auditor / sys-monitor
 
-copyright: "© 2024 SRE-Docs · Adrián, Carles, Michael i Javi · Projecte 1r ASIR"
+copyright: "© 2024 SRE-Docs · Adrián, Carles, Michael y Javi · Proyecto 1º ASIR"
 
 nav:
-  - Inici: index.md
-  - Configuració de Servidors: servidors.md
-  - Gestió de Rols i Usuaris: usuaris.md
-  - Seguretat i Hardening: seguretat.md
+  - Inicio: index.md
+  - Configuración de Servidores: servidors.md
+  - Gestión de Roles y Usuarios: usuaris.md
+  - Seguridad y Hardening: seguretat.md
